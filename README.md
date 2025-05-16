@@ -223,6 +223,17 @@ npm run build
 - `src/validateSecrets.ts`: Core validation logic using regular expressions
 - `test/`: Test suite with edge cases and examples
 
+## Future work
+- Better typing
+- Support for multiple regexes per secret
+- Custom validations beyond regex, maybe similar to Great Expectations?
+- Support YAML and JSON
+- Stop logging sensitive info on console
+- Add built-in patterns for common secrets
+- Entropy checking
+- Parallelization
+- Add caching
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
