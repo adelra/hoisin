@@ -1,6 +1,6 @@
-name: 'Validate Environment Variables'
+name: 'Hoisin: Validate Environment Variables'
 description: 'Validates environment variables based on a TOML configuration file.'
-author: 'Your Organization'
+author: 'adelra'
 inputs:
   config-file:
     description: 'Path to the TOML file containing environment variable validation patterns.'

@@ -193,30 +193,6 @@ jobs:
           API_KEY: ${{ secrets[format('API_KEY_{0}', github.event.inputs.environment)] }}
 ```
 
-## Advanced Usage
-
-### Custom Error Messages
-
-Provide meaningful error messages by commenting your TOML file:
-
-```toml
-[secrets]
-# Must be a valid AWS Access Key ID (starts with 'AKIA')
-AWS_ACCESS_KEY_ID = "^AKIA[A-Z0-9]{16}$"
-
-# Must contain at least: 8 chars, 1 uppercase, 1 lowercase, 1 number
-DATABASE_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"
-```
-
-### Handling Multiline Secrets
-
-The validator supports multiline secrets like private keys:
-
-```toml
-[secrets]
-# SSH or PEM private key
-PRIVATE_KEY = "^-----BEGIN (?:RSA|OPENSSH|PRIVATE) PRIVATE KEY-----[\\s\\S]*-----END (?:RSA|OPENSSH|PRIVATE) PRIVATE KEY-----$"
-```
 
 ## Development
 
