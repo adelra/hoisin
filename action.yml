@@ -1,0 +1,15 @@
+name: 'Validate Environment Variables'
+description: 'Validates environment variables based on a TOML configuration file.'
+author: 'Your Organization'
+inputs:
+  config-file:
+    description: 'Path to the TOML file containing environment variable validation patterns.'
+    required: true
+    default: '.github/secret-validation.toml'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'shield'
+  color: 'green'
+
