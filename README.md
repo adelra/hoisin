@@ -1,5 +1,9 @@
 # Hoisin: Secret Validator GitHub Action
 
+<p align="center">
+  <img src="img/image.png" />
+</p>
+
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![TOML](https://img.shields.io/badge/TOML-9C4121?style=for-the-badge&logo=toml&logoColor=white)
@@ -193,30 +197,6 @@ jobs:
           API_KEY: ${{ secrets[format('API_KEY_{0}', github.event.inputs.environment)] }}
 ```
 
-## Advanced Usage
-
-### Custom Error Messages
-
-Provide meaningful error messages by commenting your TOML file:
-
-```toml
-[secrets]
-# Must be a valid AWS Access Key ID (starts with 'AKIA')
-AWS_ACCESS_KEY_ID = "^AKIA[A-Z0-9]{16}$"
-
-# Must contain at least: 8 chars, 1 uppercase, 1 lowercase, 1 number
-DATABASE_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"
-```
-
-### Handling Multiline Secrets
-
-The validator supports multiline secrets like private keys:
-
-```toml
-[secrets]
-# SSH or PEM private key
-PRIVATE_KEY = "^-----BEGIN (?:RSA|OPENSSH|PRIVATE) PRIVATE KEY-----[\\s\\S]*-----END (?:RSA|OPENSSH|PRIVATE) PRIVATE KEY-----$"
-```
 
 ## Development
 
@@ -242,6 +222,17 @@ npm run build
 - `src/index.ts`: Main action code that processes the TOML configuration and validates secrets
 - `src/validateSecrets.ts`: Core validation logic using regular expressions
 - `test/`: Test suite with edge cases and examples
+
+## Future work
+- Better typing
+- Support for multiple regexes per secret
+- Custom validations beyond regex, maybe similar to Great Expectations?
+- Support YAML and JSON
+- Stop logging sensitive info on console
+- Add built-in patterns for common secrets
+- Entropy checking
+- Parallelization
+- Add caching
 
 ## Contributing
 
